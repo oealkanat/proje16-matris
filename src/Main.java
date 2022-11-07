@@ -20,7 +20,7 @@ public class Main {
         do {
             System.out.print("Row of matrix B: ");
             rowB = input.nextInt();
-        } while (rowB < 1 || rowB > 5);
+        } while ((colA != rowB) || (rowB < 1 || rowB > 5));
 
         do {
             System.out.print("Line of matrix B: ");
@@ -29,7 +29,19 @@ public class Main {
 
         matrixA = new int[rowA][colA];
         matrixA = new int[rowB][colB];
+        matrixC = new int[rowA][colB];
 
+        for (int sumRow = 0 ; sumRow < rowA ; sumRow++) {
+            for (int sumCol = 0 ; sumCol < colB ; sumCol++) {
+                matrixC[sumRow][sumCol] = 0;
+            }
+        }
 
+        for (int i=0 ; i < rowA ; i++) {
+            for (int j=0 ; j < colB ; j++) {
+                System.out.print(matrixC[i][j]);
+            }
+            System.out.print("\n");
+        }
     }
 }
