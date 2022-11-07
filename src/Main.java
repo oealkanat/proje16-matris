@@ -37,6 +37,7 @@ public class Main {
             }
         }
 
+        //print the matrix
         for (int i=0 ; i < rowA ; i++) {
             for (int j=0 ; j < colB ; j++) {
                 System.out.print(matrixC[i][j]);
