@@ -17,6 +17,16 @@ public class Main {
             colA = input.nextInt();
         } while (colA < 1 || colA > 5);
 
+        matrixA = new int[rowA][colA];
+
+        for (int i=0 ; i < rowA ; i++) {
+            for (int j=0 ; j < colA ; j++) {
+                System.out.print("Enter the value of Matrix A, " + (i+1) + "x" + (j+1) + ": ");
+                matrixA[i][j] = input.nextInt();
+            }
+        }
+
+
         do {
             System.out.print("Row of matrix B: ");
             rowB = input.nextInt();
@@ -27,8 +37,16 @@ public class Main {
             colB = input.nextInt();
         } while (colB < 1 || colB > 5);
 
-        matrixA = new int[rowA][colA];
-        matrixA = new int[rowB][colB];
+        matrixB = new int[rowB][colB];
+
+        for (int i=0 ; i < rowA ; i++) {
+            for (int j=0 ; j < colA ; j++) {
+                System.out.print("Enter the value of Matrix B, " + (i+1) + "x" + (j+1) + ": ");
+                matrixB[i][j] = input.nextInt();
+            }
+        }
+
+
         matrixC = new int[rowA][colB];
 
         for (int sumRow = 0 ; sumRow < rowA ; sumRow++) {
@@ -37,10 +55,18 @@ public class Main {
             }
         }
 
-        //print the matrix
+        //multiple the matrices
         for (int i=0 ; i < rowA ; i++) {
             for (int j=0 ; j < colB ; j++) {
-                System.out.print(matrixC[i][j]);
+                for (int k=0 ; k < rowA ; k++) {
+                    matrixC[i][j] += matrixA[i][k] * matrixB[k][j];
+                }
+            }
+        }
+
+        for (int i=0 ; i < rowA ; i++) {
+            for (int j=0 ; j < colB ; j++) {
+                System.out.print(matrixC[i][j] + " ");
             }
             System.out.print("\n");
         }
