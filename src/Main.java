@@ -13,7 +13,7 @@ public class Main {
         } while (rowA < 1 || rowA > 5);
 
         do {
-            System.out.print("Line of matrix A: ");
+            System.out.print("Column of matrix A: ");
             colA = input.nextInt();
         } while (colA < 1 || colA > 5);
 
@@ -33,14 +33,14 @@ public class Main {
         } while ((colA != rowB) || (rowB < 1 || rowB > 5));
 
         do {
-            System.out.print("Line of matrix B: ");
+            System.out.print("Column of matrix B: ");
             colB = input.nextInt();
         } while (colB < 1 || colB > 5);
 
         matrixB = new int[rowB][colB];
 
-        for (int i=0 ; i < rowA ; i++) {
-            for (int j=0 ; j < colA ; j++) {
+        for (int i=0 ; i < rowB ; i++) {
+            for (int j=0 ; j < colB; j++) {
                 System.out.print("Enter the value of Matrix B, " + (i+1) + "x" + (j+1) + ": ");
                 matrixB[i][j] = input.nextInt();
             }
@@ -58,7 +58,7 @@ public class Main {
         //multiple the matrices
         for (int i=0 ; i < rowA ; i++) {
             for (int j=0 ; j < colB ; j++) {
-                for (int k=0 ; k < rowA ; k++) {
+                for (int k=0 ; k < colA ; k++) {
                     matrixC[i][j] += matrixA[i][k] * matrixB[k][j];
                 }
             }
