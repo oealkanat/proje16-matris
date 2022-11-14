@@ -1,11 +1,20 @@
 import java.util.Scanner;
 
 public class Main {
+
+    static void matrixPrinter(int rows, int columns, int[][] matrices) {
+        for (int i=0 ; i < rows ; i++) {
+            for (int j=0 ; j < columns ; j++) {
+                System.out.print(matrices[i][j] + " ");
+            }
+            System.out.print("\n");
+        }
+    }
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 
         int[][] matrixA, matrixB, matrixC;
-        int rowA, colA, rowB, colB, rowC, colC;
+        int rowA, colA, rowB, colB;
 
         do {
             System.out.print("Row of matrix A: ");
@@ -19,14 +28,6 @@ public class Main {
 
         matrixA = new int[rowA][colA];
 
-        for (int i=0 ; i < rowA ; i++) {
-            for (int j=0 ; j < colA ; j++) {
-                System.out.print("Enter the value of Matrix A, " + (i+1) + "x" + (j+1) + ": ");
-                matrixA[i][j] = input.nextInt();
-            }
-        }
-
-
         do {
             System.out.print("Row of matrix B: ");
             rowB = input.nextInt();
@@ -38,6 +39,13 @@ public class Main {
         } while (colB < 1 || colB > 5);
 
         matrixB = new int[rowB][colB];
+
+        for (int i=0 ; i < rowA ; i++) {
+            for (int j=0 ; j < colA ; j++) {
+                System.out.print("Enter the value of Matrix A, " + (i+1) + "x" + (j+1) + ": ");
+                matrixA[i][j] = input.nextInt();
+            }
+        }
 
         for (int i=0 ; i < rowB ; i++) {
             for (int j=0 ; j < colB; j++) {
@@ -64,11 +72,13 @@ public class Main {
             }
         }
 
-        for (int i=0 ; i < rowA ; i++) {
-            for (int j=0 ; j < colB ; j++) {
-                System.out.print(matrixC[i][j] + " ");
-            }
-            System.out.print("\n");
-        }
+        System.out.println("\nMatrix A:");
+        matrixPrinter(rowA, colA, matrixA);
+
+        System.out.println("\nMatrix B:");
+        matrixPrinter(rowB, colB, matrixB);
+
+        System.out.println("\nMatrix C (AxB):");
+        matrixPrinter(rowA, colB, matrixC);
     }
 }
